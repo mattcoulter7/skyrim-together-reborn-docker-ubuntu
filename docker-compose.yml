@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  skyrim-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        ZIP_URL: ${ZIP_URL}
+        SKYRIM_TOGETHER_SERVER_PATH: ${SKYRIM_TOGETHER_SERVER_PATH}
+    container_name: skyrim-together-server
+    networks:
+      - skyrim-network  # Connect to a custom network
+    ports:
+      - "10578:10578"   # Expose port 10578
+    stdin_open: true
+    tty: true
+    healthcheck:
+      test: ["CMD", "tasklist", "/FI", "IMAGENAME eq SkyrimTogetherServer.exe"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+# Define custom network
+networks:
+  skyrim-network:
+    driver: bridge  # Use a bridge network (default network type)
