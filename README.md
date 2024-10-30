@@ -1,6 +1,10 @@
-# SkyrimTogetherReborn Server in Docker
+# SkyrimTogetherReborn Ubuntu Docker Server
 
-This project ports the SkyrimTogetherReborn server into a portable Ubuntu Docker container.
+![skyrim together reborn + docker](https://github.com/user-attachments/assets/960c2c69-7f3b-43cf-8d23-23a80dcf77dd)
+
+This project ports the SkyrimTogetherReborn Windows Server into a portable Ubuntu Docker container.
+
+This removes the overhead of maintaining your server, as it can now full ybe managed through a command line over sh, instead of RDP into a Windows Server.
 
 ## Setup Instructions
 
