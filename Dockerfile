@@ -22,24 +22,23 @@ RUN apt-get install -y unzip
 # Install wget in its own step
 RUN apt-get install -y wget
 
+# Install wget in its own step
+RUN apt-get install -y nano
+
 # Set the build argument for the zip file download link and SkyrimTogetherServer.exe path
-ARG ZIP_URL
-ARG SKYRIM_TOGETHER_SERVER_PATH
+ARG STR_DOWNLOAD_URL
 
 # Create a working directory
 WORKDIR /app
 
 # Download the ZIP file
-RUN wget -O server.zip ${ZIP_URL}
+RUN wget -O server.zip ${STR_DOWNLOAD_URL}
 
 # Extract the ZIP file
 RUN unzip server.zip -d /app && rm server.zip
-
-# Set the working directory to the SkyrimTogetherServer.exe folder
-WORKDIR ${SKYRIM_TOGETHER_SERVER_PATH}
 
 # Expose the default Skyrim Together server port
 EXPOSE 10578
 
 # Run the Skyrim Together server using Wine
-CMD ["wine", "SkyrimTogetherServer.exe"]
+CMD ["wine", "./SkyrimTogetherReborn/SkyrimTogetherServer.exe"]
