@@ -11,7 +11,7 @@ This removes the overhead of maintaining your server, as it can now full be mana
 ### Clone the Repository
 ```bash
 git clone https://github.com/mattcoulter7/skyrim-together-reborn-docker-ubuntu
-cd skyrim-together-reborn-docker-port
+cd skyrim-together-reborn-docker-ubuntu
 ```
 
 ### Build the Docker Image
